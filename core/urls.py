@@ -21,4 +21,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('hackathon2.urls')),  # Include URLs from hackathon2 app
+    path('accounts/', include('allauth.urls')),
 ]

@@ -8,7 +8,8 @@
   <div class="starry-bg" id="stars"></div>
     <h1>🐍Snake Game</h1>
     <div class="game-wrapper">
-        <button id="startBtn">Start Game</button>
+      <div id="snakeImage"><img src="{% static 'images/snake-image.png' %}" alt="Snake Game Icon"></div>
+  <button id="startBtn">Start Game</button>
         <canvas id="gameCanvas" width="400" height="400"></canvas>
         <p id="scoreDisplay">Score: <span id="score">0</span></p>
         <!-- <a id ="home-link" href="index.html">⬅ Back to Arcade Menu</a> -->
@@ -40,6 +41,14 @@
         shootingStar.remove();
       }, 3000);
     }, 4000);
+
+    // Remove snake image when Start Game is clicked
+    document.getElementById('startBtn').addEventListener('click', function() {
+      const snakeImageDiv = document.getElementById('snakeImage');
+      if (snakeImageDiv) {
+        snakeImageDiv.remove();
+      }
+    });
   </script>
 
 <!-- 🐍 Snake Game Logic -->

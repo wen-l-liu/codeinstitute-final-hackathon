@@ -88,6 +88,10 @@ button {
   gap: 1rem;
 }
 
+.white-bg {
+  background-color: #ffffff;
+}
+
 canvas {
   width: 90vmin;
   height: 90vmin;
@@ -158,3 +162,4 @@ h1, p, #scoreDisplay {
     opacity: 0;
   }
 }
+

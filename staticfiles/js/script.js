@@ -3,11 +3,18 @@ const ctx = canvas.getContext('2d');
 const scoreSpan = document.getElementById('score');
 const startBtn = document.getElementById('startBtn');
 const eatSound = new Audio('static/sounds/eating-sound.wav');
+const snakeImage = document.getElementById('snakeImage');
 
 const box = 20;
 const rows = canvas.height / box;
 const cols = canvas.width / box;
 let snake, food, direction, score, game;
+
+function hideSnakeImage() {
+    if (snakeImage) {
+        snakeImage.parentNode.removeChild(snakeImage);
+    }
+}
 
 function randomFood() {
     return {

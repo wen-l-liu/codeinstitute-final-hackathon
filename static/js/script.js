@@ -10,11 +10,11 @@ const rows = canvas.height / box;
 const cols = canvas.width / box;
 let snake, food, direction, score, game;
 
-function hideSnakeImage() {
-    if (snakeImage) {
-        snakeImage.parentNode.removeChild(snakeImage);
-    }
-}
+// function hideSnakeImage() {
+//     if (snakeImage) {
+//         snakeImage.parentNode.removeChild(snakeImage);
+//     }
+// }
 
 function randomFood() {
     return {
@@ -45,11 +45,41 @@ function drawGame() {
     else if (head.y >= canvas.height) head.y = 0;
 
     // game over if snake hits itself
+    // end game state
     if (snake.some(seg => seg.x === head.x && seg.y === head.y)) {
         clearInterval(game);
+        snakeImage.style.display = 'block';
         alert("Game Over! Your final score: " + score);
         canvas.style.display = 'none';
         startBtn.style.display = 'inline-block';
+        fetch('/save-score', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ score: score })
+        })
+        .then(() => {
+            // Fetch updated top scores
+            fetch('/get-top-scores')
+                .then(response => response.json())
+                .then(data => {
+                    const scoresList = document.querySelector('aside ol');
+                    if (scoresList) {
+                        scoresList.innerHTML = '';
+                        if (data.top_scores.length > 0) {
+                            data.top_scores.forEach(item => {
+                                const li = document.createElement('li');
+                                li.textContent = `${item.username}: ${item.score}`;
+                                scoresList.appendChild(li);
+                            });
+                        } else {
+                            const li = document.createElement('li');
+                            li.textContent = 'No scores yet.';
+                            scoresList.appendChild(li);
+                        }
+                    }
+                });
+        });
+
         return;
     }
 
@@ -77,7 +107,7 @@ function startGame() {
     scoreDisplay.style.display = 'block';
     startBtn.style.display = 'none';
     clearInterval(game);
-    game = setInterval(drawGame, 200);
+    game = setInterval(drawGame, 100);
 }
 
 function changeDir(e) {

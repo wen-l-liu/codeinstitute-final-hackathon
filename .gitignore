@@ -10,4 +10,3 @@ db.json
 db.sqlite3
 core/__pycache__/settings.cpython-312.pyc
 __pycache__/env.cpython-312.pyc
-db.sqlite3

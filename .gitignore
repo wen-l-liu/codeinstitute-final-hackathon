@@ -1,6 +1,7 @@
+# Ignore all Python bytecode files
+*.pyc
 .venv/
 env.py
-*.pyc
 __pycache__/
 .github/
 blog/fixtures/
@@ -9,4 +10,5 @@ fixtures/
 db.json
 db.sqlite3
 core/__pycache__/settings.cpython-312.pyc
+__pycache__/env.cpython-312.pyc
 __pycache__/env.cpython-312.pyc

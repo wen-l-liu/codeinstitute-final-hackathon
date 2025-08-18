@@ -48,7 +48,6 @@ function drawGame() {
     // end game state
     if (snake.some(seg => seg.x === head.x && seg.y === head.y)) {
         clearInterval(game);
-        snakeImage.style.display = 'block';
         alert("Game Over! Your final score: " + score);
         canvas.style.display = 'none';
         startBtn.style.display = 'inline-block';
@@ -58,28 +57,10 @@ function drawGame() {
             body: JSON.stringify({ score: score })
         })
         .then(() => {
-            // Fetch updated top scores
-            fetch('/get-top-scores')
-                .then(response => response.json())
-                .then(data => {
-                    const scoresList = document.querySelector('aside ol');
-                    if (scoresList) {
-                        scoresList.innerHTML = '';
-                        if (data.top_scores.length > 0) {
-                            data.top_scores.forEach(item => {
-                                const li = document.createElement('li');
-                                li.textContent = `${item.username}: ${item.score}`;
-                                scoresList.appendChild(li);
-                            });
-                        } else {
-                            const li = document.createElement('li');
-                            li.textContent = 'No scores yet.';
-                            scoresList.appendChild(li);
-                        }
-                    }
-                });
+            if (typeof updateScoreboard === 'function') {
+                updateScoreboard();
+            }
         });
-
         return;
     }
 

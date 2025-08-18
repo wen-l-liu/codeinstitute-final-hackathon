@@ -1,3 +1,18 @@
+# For deleting scores
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect, get_object_or_404
+# ...existing code...
+
+@login_required
+def delete_score(request, score_id):
+    score = get_object_or_404(game_scores, id=score_id)
+    if score.gamer == request.user:
+        score.delete()
+        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+            return JsonResponse({'status': 'success'})
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        return JsonResponse({'status': 'error'}, status=403)
+    return redirect('home')
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
@@ -39,7 +54,12 @@ def save_score(request):
 def get_top_scores(request):
     top_scores = game_scores.objects.order_by('-score')[:10]
     scores_data = [
-        {'username': score.gamer.username, 'score': score.score}
+        {
+            'id': score.id,
+            'username': score.gamer.username,
+            'score': score.score,
+            'is_owner': request.user.is_authenticated and score.gamer == request.user
+        }
         for score in top_scores
     ]
     return JsonResponse({'top_scores': scores_data})

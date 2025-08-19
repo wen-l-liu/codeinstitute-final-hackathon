@@ -1,6 +1,6 @@
 # The Arcadean - Snake Game
 
-![Preview of Website](static/images/Snake%20start.jpg)
+![Preview of Website](static/docs/Snake_start.jpg)
 
 # About This Project
 This is a classic Snake game built for the web! It's the kind of game you might remember from old Nokia phones or arcade machines. The player controls a snake that moves around the screen, eating food to grow bigger while trying not to crash into walls or itself.
@@ -79,7 +79,7 @@ We focused on keeping things simple and clear. The design is inspired by old arc
 
 ### Colour Palette
 
-![Colour Palette](static/images/hackathon%20pallette.png)
+![Colour Palette](static/docs/Color%20Palette.png)
 
 We chose bright, fun colors that remind people of classic arcade games while making sure everything is easy to see and read.
 
@@ -88,18 +88,16 @@ We chose bright, fun colors that remind people of classic arcade games while mak
 - **Backup Font:** Arial - In case the main font doesn't load
 
 ### Wireframes
-![Wireframes - Registration](static/images/favicon/Hackathon2%20-Register.jpg)
-![Wireframes - Sign In](static/images/favicon/hackathon2%20sign%20in.jpg)
-![Wireframes - Game Play](static/images/favicon/snake%20play%20screen.jpg)
+![Wireframes](static/docs/wireframe-main.png)
 
 We sketched out how the game should look before we started coding. This helped us plan where to put the game area, score, and controls.
 
 <details>
 <summary>Click to see more wireframes</summary>
 
-![Registration Screen](static/images/favicon/Hackathon2%20-Register.jpg)
-![Sign In Screen](static/images/favicon/hackathon2%20sign%20in.jpg)
-![Game Play Screen](static/images/favicon/snake%20play%20screen.jpg)
+![Registration Screen](static/docs/Hackathon2_-Register.jpg)
+![Sign In Screen](static/docs/hackathon2_sign_in.jpg)
+![Game Play Screen](static/docs/snake_play_screen.jpg)
 These show how the game looks on different screens including user registration, sign in, and actual gameplay.
 </details>
 
@@ -186,14 +184,17 @@ We tested our code to make sure it works properly and follows web standards.
 ### HTML Validation
 We used the [W3C HTML Validator](https://validator.w3.org/) to check that our HTML code is written correctly.
 
+![HTML](static/docs/html.png)
+
 ### CSS Validation
 We used the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) to make sure our CSS follows the rules.
 
-![Snake](static/js/CSS%20validation.jpg)
+![Snake](static/docs/CSS_validation.jpg)
 
 ### JavaScript Validation
 We used [JSHint](https://jshint.com/) to check our JavaScript for errors and bad practices.
 
+![JS](static/docs/js_validation.jpg)
 
 We fixed any problems it found to make our code better.
 

@@ -7,7 +7,7 @@ This is a classic Snake game built for the web! It's the kind of game you might 
 
 We built this as an enhanced version of our previous project called "The Arcadean" - a collection of retro arcade games. For this hackathon, we took the original frontend-only Snake game and added a full Django backend to create a more complete web application. The goal was to create something fun and nostalgic that works on any device while demonstrating our ability to integrate frontend games with backend database functionality.
 
-**[Play the Game Here!](https://github.com/wen-l-liu/codeinstitute-final-hackathon.git)**
+**[Play the Game Here!](https://ci-django-hackathon-30d66066d9ca.herokuapp.com/)**
 
 ## Table of Contents
 - [Project Outline](#project-outline)
@@ -122,23 +122,20 @@ Our Django backend implements full CRUD (Create, Read, Update, Delete) functiona
 #### Create
 - **User Registration:** New players can create accounts
 - **Score Recording:** Game scores are automatically created and saved
-- **Profile Creation:** User profiles are generated upon registration
 
 #### Read
-- **View Scores:** Players can see their personal score history
 - **Leaderboards:** Display top scores from all players
 
 #### Update
 - **Score Updates:** High scores are automatically updated when beaten
-- **Account Settings:** Players can modify their account preferences
 
 #### Delete
-- **Account Deletion:** Users can delete their accounts if desired
-- **Score Management:** Administrators can remove inappropriate scores
-- **Data Cleanup:** Automated cleanup of old or invalid data
+- **Score Management:** Users can remove their scores if they will
+- **Admin Management:** Administrators can remove inappropriate scores
+
 
 ### Technical Features
-- **Database Integration:** SQLite database for development, scalable to PostgreSQL
+- **Database Integration:** SQLite database for development, scalable to PostgreSQL for production
 - **Responsive Design:** Works seamlessly on phones, tablets, and computers
 - **Security Features:** Password hashing, session management, and CSRF protection
 

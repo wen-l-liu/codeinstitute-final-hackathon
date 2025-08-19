@@ -92,9 +92,7 @@ We chose bright, fun colors that remind people of classic arcade games while mak
 
 We sketched out how the game should look before we started coding. This helped us plan where to put the game area, score, and controls.
 
-<details>
-<summary>Click to see more wireframes</summary>
-
+### Final result
 ![Registration Screen](static/docs/Hackathon2_-Register.jpg)
 ![Sign In Screen](static/docs/hackathon2_sign_in.jpg)
 ![Game Play Screen](static/docs/snake_play_screen.jpg)
